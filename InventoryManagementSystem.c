@@ -16,6 +16,7 @@ typedef struct list{
     product_t * head;
     int count;
 }list_t;
+
 //initial condition for list
 void initList(list_t * list){
     list->head=NULL;
@@ -25,7 +26,7 @@ void initList(list_t * list){
 /* ----------------------------- Simple File Handling -----------------------------
    We store products in a text file "inventory.txt" as:
    id|name|quantity|price
-   Example: 101|Apple Juice 1L|25|2.49
+   Example: 101|Sugar|100|45
 ---------------------------------------------------------------------------------*/
 
 void saveInventory(list_t *list) {
@@ -138,7 +139,7 @@ void addProduct(list_t *list){
     }
     list->count++; 
     printf("Product added successfully!\n");
-    saveInventory(list); // Save after adding
+    saveInventory(list); // Saving after adding
 }
 
 void displayProduct(list_t *list)
@@ -191,7 +192,7 @@ void deleteProduct(list_t * list, int id) {
     free(temp);
     list->count--;
     printf("Product deleted successfully.\n");
-    saveInventory(list); // Save after delete
+    saveInventory(list); // Saving after deletion
 }
 
 product_t* searchProduct(list_t *list, int id) {
@@ -281,7 +282,7 @@ void generateBill(list_t *list) {
 
     } while (choice == 'y' || choice == 'Y');
 
-    // Discount logic
+    // Discount system
     if (subtotal >= 2000)
         discount = 0.15 * subtotal;
     else if (subtotal >= 1000)
