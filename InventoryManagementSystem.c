@@ -308,7 +308,7 @@ void generateBill(list_t *list) {
     printf("Total Amount to Pay  : $%.2f\n", finalAmount);
     printf("Amount you have saved : $%.2f\n", savedAmt);
     printf("====================================\n");
-
+    printf("Thank You. Visit again.\n");
     saveInventory(list); // Save updated quantities after purchase
 }
 
